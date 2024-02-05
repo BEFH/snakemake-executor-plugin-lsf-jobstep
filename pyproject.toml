@@ -1,17 +1,18 @@
 [tool.poetry]
-name = "snakemake-executor-plugin-slurm-jobstep"
+name = "snakemake-executor-plugin-lsf-jobstep"
 version = "0.1.10"
-description = "A Snakemake executor plugin for running srun jobs inside of SLURM jobs (meant for internal use by snakemake-executor-plugin-slurm)"
+description = "A Snakemake executor plugin for running bjobs jobs inside of LSF jobs (meant for internal use by snakemake-executor-plugin-lsf)"
 authors = [
+    "Brian Fulton-Howard <brian.fulton-howard@mssm.edu>",
     "Christian Meesters <meesters@uni-mainz.de>",
     "David Lähnemann <david.laehnemann@dkfz-heidelberg.de>",
     "Johannes Koester <johannes.koester@uni-due.de>",
 ]
 readme = "README.md"
 license = "MIT"
-repository = "https://github.com/snakemake/snakemake-executor-plugin-slurm-jobstep"
-documentation = "https://snakemake.github.io/snakemake-plugin-catalog/plugins/executor/slurm-jobstep.html"
-keywords = ["snakemake", "plugin", "executor", "cluster", "slurm"]
+repository = "https://github.com/BEFH/snakemake-executor-plugin-lsf-jobstep"
+documentation = "https://snakemake.github.io/snakemake-plugin-catalog/plugins/executor/lsf-jobstep.html"
+keywords = ["snakemake", "plugin", "executor", "cluster", "lsf"]
 
 [tool.poetry.dependencies]
 python = "^3.11"

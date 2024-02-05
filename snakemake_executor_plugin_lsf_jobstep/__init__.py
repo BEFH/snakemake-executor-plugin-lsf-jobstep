@@ -1,5 +1,5 @@
 __author__ = "David Lähnemann, Johannes Köster, Christian Meesters"
-__copyright__ = "Copyright 2023, David Lähnemann, Johannes Köster, Christian Meesters"
+__copyright__ = "Copyright 2023, Brian Fulton-Howard, David Lähnemann, Johannes Köster, Christian Meesters"
 __email__ = "johannes.koester@uni-due.de"
 __license__ = "MIT"
 
@@ -41,7 +41,7 @@ class Executor(RealExecutor):
     def __post_init__(self):
         # These environment variables are set by SLURM.
         # only needed for commented out jobstep handling below
-        self.jobid = os.getenv("SLURM_JOB_ID")
+        self.jobid = os.getenv("LSB_JOBID")
 
     def run_job(self, job: JobExecutorInterface):
         # Implement here how to run a job.
@@ -93,23 +93,8 @@ class Executor(RealExecutor):
         #             get_call(level_list[-1], aux="--dependency=singleton"), shell=True
         #         )
 
-        if "mpi" in job.resources.keys():
-            # MPI job:
-            # No need to prepend `srun`, as this will happen inside of the job's shell
-            # command or script (!).
-            # The following call invokes snakemake, which in turn takes care of all
-            # auxilliary work around the actual command
-            # like remote file support, benchmark setup, error handling, etc.
-            # AND there can be stuff around the srun call within the job, like any
-            # commands which should be executed before.
-            call = self.format_job_exec(job)
-        else:
-            # SMP job, execute snakemake with srun, to ensure proper placing of threaded
-            # executables within the c-group
-            # The -n1 is important to avoid that srun executes the given command
-            # multiple times, depending on the relation between
-            # cpus per task and the number of CPU cores.
-            call = f"srun -n1 --cpu-bind=q {self.format_job_exec(job)}"
+
+        call = self.format_job_exec(job)
 
         self.logger.debug(job.is_group())
         self.logger.debug(call)

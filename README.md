@@ -1,4 +1,4 @@
-# snakemake-executor-plugin-slurm
+# snakemake-executor-plugin-lsf
 
-A Snakemake executor plugin for running srun jobs inside of SLURM jobs (meant for
-internal use by snakemake-executor-plugin-slurm).
+A Snakemake executor plugin for running bjobs jobs inside of LSF jobs (meant for
+internal use by snakemake-executor-plugin-lsf).

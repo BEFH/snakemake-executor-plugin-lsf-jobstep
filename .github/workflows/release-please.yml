@@ -15,7 +15,7 @@ jobs:
         id: release
         with:
           release-type: python
-          package-name: snakemake-executor-plugin-slurm-jobstep
+          package-name: snakemake-executor-plugin-lsf-jobstep
 
   publish:
     runs-on: ubuntu-latest
