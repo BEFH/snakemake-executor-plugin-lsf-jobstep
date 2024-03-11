@@ -93,7 +93,6 @@ class Executor(RealExecutor):
         #             get_call(level_list[-1], aux="--dependency=singleton"), shell=True
         #         )
 
-
         call = self.format_job_exec(job)
 
         self.logger.debug(job.is_group())
