@@ -32,6 +32,7 @@ common_settings = CommonSettings(
     pass_default_resources_args=True,
     pass_envvar_declarations_to_cmd=False,
     auto_deploy_default_storage_provider=False,
+    spawned_jobs_assume_shared_fs=True
 )
 
 
