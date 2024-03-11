@@ -1,5 +1,10 @@
 __author__ = "David Lähnemann, Johannes Köster, Christian Meesters"
-__copyright__ = "Copyright 2023, Brian Fulton-Howard, David Lähnemann, Johannes Köster, Christian Meesters"
+__copyright__ = (
+    "Copyright 2023, Brian Fulton-Howard,",
+    "David Lähnemann, ",
+    "Johannes Köster, ",
+    "Christian Meesters",
+)
 __email__ = "johannes.koester@uni-due.de"
 __license__ = "MIT"
 
@@ -32,7 +37,7 @@ common_settings = CommonSettings(
     pass_default_resources_args=True,
     pass_envvar_declarations_to_cmd=False,
     auto_deploy_default_storage_provider=False,
-    spawned_jobs_assume_shared_fs=True
+    spawned_jobs_assume_shared_fs=True,
 )
 
 
