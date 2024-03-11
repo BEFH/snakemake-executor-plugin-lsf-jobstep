@@ -27,6 +27,7 @@ requirements:
     - {{ dep }} {% if deps[dep].startswith('^') %}>={{ deps[dep][1:] }}{% else %}=={{ deps[dep] }}{% endif %}{% endfor %}
 
 build:
+  noarch: python
   number: 0
   script: "{{ PYTHON }} -m pip install --no-deps --ignore-installed ."
 
